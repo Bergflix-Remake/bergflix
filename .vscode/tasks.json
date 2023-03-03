@@ -1,0 +1,55 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "vite build",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": true,
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "playwright test",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": true,
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": [],
+			"label": "npm: dev",
+			"detail": "vite dev",
+			"isBackground": true
+		},
+		{
+			"type": "npm",
+			"script": "preview",
+			"problemMatcher": [],
+			"label": "npm: preview",
+			"detail": "vite preview",
+			"isBackground": true
+		}
+	]
+}
