@@ -1,6 +1,10 @@
-<script>
-	export const name = 'Home';
+<script lang="ts">
+	import type { PageData } from './$houdini';
+
+	export let data: PageData;
+
+	$: ({ HomePageQuery } = data);
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<!-- TODO We really need to find a way to flatten this. -->
+{$HomePageQuery.data?.featured?.data?.attributes?.video?.data?.attributes?.title}

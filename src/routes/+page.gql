@@ -1,0 +1,34 @@
+query HomePageQuery {
+  featured {
+    data {
+      attributes {
+        video {
+          data {
+            attributes {
+              title
+              title_image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              background_image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              description
+              year
+              age
+              genre
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    
