@@ -17,6 +17,7 @@
 		"commitmsg": "commitlint --config commitlint.config.cjs --edit"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.21.0",
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@playwright/test": "^1.28.1",
@@ -40,5 +41,10 @@
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@kitql/all-in": "^0.8.7",
+		"graphql": "15.8.0",
+		"houdini": "^1.0.9"
+	}
 }
