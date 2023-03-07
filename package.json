@@ -14,13 +14,26 @@
 		"fix": "eslint --fix .",
 		"prepare": "husky install",
 		"precommit": "lint-staged --concurrent false",
-		"commitmsg": "commitlint --config commitlint.config.cjs --edit"
+		"commitmsg": "commitlint --config commitlint.config.cjs --edit",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.21.0",
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
+		"@iconify/svelte": "^3.1.0",
+		"@kitql/all-in": "^0.8.7",
 		"@playwright/test": "^1.28.1",
+		"@storybook/addon-essentials": "7.0.0-beta.62",
+		"@storybook/addon-interactions": "7.0.0-beta.62",
+		"@storybook/addon-links": "7.0.0-beta.62",
+		"@storybook/addon-svelte-csf": "3.0.0-next.3",
+		"@storybook/addons": "^6.5.16",
+		"@storybook/blocks": "7.0.0-beta.62",
+		"@storybook/svelte": "7.0.0-beta.62",
+		"@storybook/sveltekit": "7.0.0-beta.62",
+		"@storybook/testing-library": "0.0.14-next.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -29,24 +42,24 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"graphql": "15.8.0",
+		"houdini": "^1.0.9",
+		"houdini-svelte": "^1.0.9",
 		"husky": "^8.0.0",
 		"lint-staged": "^13.1.2",
 		"postcss": "^8.4.21",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"storybook": "7.0.0-beta.62",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tailwindcss": "^3.2.7",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0",
-		"houdini": "^1.0.9",
-		"houdini-svelte": "^1.0.9"
+		"@storybook/theming": "7.0.0-beta.62"
 	},
-	"type": "module",
-	"dependencies": {
-		"@kitql/all-in": "^0.8.7",
-		"graphql": "15.8.0",
-		"houdini": "^1.0.9"
-	}
+	"type": "module"
 }
