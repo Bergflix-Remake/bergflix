@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+	background: #f40f3a;
+	color: #fff;
+}
+
 body {
-    @apply bg-clean-dark-700 text-white;
+	@apply bg-clean-dark-700 text-white;
 }

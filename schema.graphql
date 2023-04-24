@@ -196,6 +196,53 @@ input AwesomeHelpHelpInput {
   zoneName: String
 }
 
+type Badge {
+  createdAt: DateTime
+  description: String!
+  icon: UploadFileEntityResponse!
+  locale: String
+  localizations(filters: BadgeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): BadgeRelationResponseCollection
+  name: String!
+  updatedAt: DateTime
+}
+
+type BadgeEntity {
+  attributes: Badge
+  id: ID
+}
+
+type BadgeEntityResponse {
+  data: BadgeEntity
+}
+
+type BadgeEntityResponseCollection {
+  data: [BadgeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input BadgeFiltersInput {
+  and: [BadgeFiltersInput]
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  locale: StringFilterInput
+  localizations: BadgeFiltersInput
+  name: StringFilterInput
+  not: BadgeFiltersInput
+  or: [BadgeFiltersInput]
+  updatedAt: DateTimeFilterInput
+}
+
+input BadgeInput {
+  description: String
+  icon: ID
+  name: String
+}
+
+type BadgeRelationResponseCollection {
+  data: [BadgeEntity!]!
+}
+
 input BooleanFilterInput {
   and: [Boolean]
   between: [Boolean]
@@ -387,6 +434,26 @@ type ComponentMovieVideo {
   id: ID!
   num: Int
   video: VideoEntityResponse
+}
+
+type ComponentUserBadge {
+  awarded: Date!
+  badge: BadgeEntityResponse
+  id: ID!
+}
+
+input ComponentUserBadgeFiltersInput {
+  and: [ComponentUserBadgeFiltersInput]
+  awarded: DateFilterInput
+  badge: BadgeFiltersInput
+  not: ComponentUserBadgeFiltersInput
+  or: [ComponentUserBadgeFiltersInput]
+}
+
+input ComponentUserBadgeInput {
+  awarded: Date
+  badge: ID
+  id: ID
 }
 
 type Contributor {
@@ -676,7 +743,7 @@ input FloatFilterInput {
   startsWith: Float
 }
 
-union GenericMorph = ApplicationField | ApplicationQuestion | ApplicationSession | AwesomeHelpHelp | Collection | ComingSoon | ComponentApplicationCodeblock | ComponentApplicationImage | ComponentApplicationTweet | ComponentCollectionSerie | ComponentCollectionVideo | ComponentCommonButton | ComponentCommonContributor | ComponentCommonTextBlock | ComponentFeaturedFilm | ComponentFeaturedSeries | ComponentMoviePoster | ComponentMovieVideo | Contributor | EzformsRecipient | EzformsSubmission | Featured | GraphsBuilderGraph | I18NLocale | Imprint | Serie | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Video
+union GenericMorph = ApplicationField | ApplicationQuestion | ApplicationSession | AwesomeHelpHelp | Badge | Collection | ComingSoon | ComponentApplicationCodeblock | ComponentApplicationImage | ComponentApplicationTweet | ComponentCollectionSerie | ComponentCollectionVideo | ComponentCommonButton | ComponentCommonContributor | ComponentCommonTextBlock | ComponentFeaturedFilm | ComponentFeaturedSeries | ComponentMoviePoster | ComponentMovieVideo | ComponentUserBadge | Contributor | EzformsRecipient | EzformsSubmission | Featured | GraphsBuilderGraph | I18NLocale | Imprint | Serie | Studio | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Video
 
 type GraphsBuilderGraph {
   collectionX: String!
@@ -865,6 +932,8 @@ type Mutation {
   createApplicationQuestion(data: ApplicationQuestionInput!): ApplicationQuestionEntityResponse
   createApplicationSession(data: ApplicationSessionInput!): ApplicationSessionEntityResponse
   createAwesomeHelpHelp(data: AwesomeHelpHelpInput!): AwesomeHelpHelpEntityResponse
+  createBadge(data: BadgeInput!, locale: I18NLocaleCode): BadgeEntityResponse
+  createBadgeLocalization(data: BadgeInput, id: ID, locale: I18NLocaleCode): BadgeEntityResponse
   createCollection(data: CollectionInput!): CollectionEntityResponse
   createComingSoonLocalization(data: ComingSoonInput, id: ID, locale: I18NLocaleCode): ComingSoonEntityResponse
   createContributor(data: ContributorInput!): ContributorEntityResponse
@@ -873,6 +942,8 @@ type Mutation {
   createGraphsBuilderGraph(data: GraphsBuilderGraphInput!): GraphsBuilderGraphEntityResponse
   createSerie(data: SerieInput!, locale: I18NLocaleCode): SerieEntityResponse
   createSerieLocalization(data: SerieInput, id: ID, locale: I18NLocaleCode): SerieEntityResponse
+  createStudio(data: StudioInput!, locale: I18NLocaleCode): StudioEntityResponse
+  createStudioLocalization(data: StudioInput, id: ID, locale: I18NLocaleCode): StudioEntityResponse
   createUploadFile(data: UploadFileInput!): UploadFileEntityResponse
   createUploadFolder(data: UploadFolderInput!): UploadFolderEntityResponse
 
@@ -887,6 +958,7 @@ type Mutation {
   deleteApplicationQuestion(id: ID!): ApplicationQuestionEntityResponse
   deleteApplicationSession(id: ID!): ApplicationSessionEntityResponse
   deleteAwesomeHelpHelp(id: ID!): AwesomeHelpHelpEntityResponse
+  deleteBadge(id: ID!, locale: I18NLocaleCode): BadgeEntityResponse
   deleteCollection(id: ID!): CollectionEntityResponse
   deleteComingSoon(locale: I18NLocaleCode): ComingSoonEntityResponse
   deleteContributor(id: ID!): ContributorEntityResponse
@@ -896,6 +968,7 @@ type Mutation {
   deleteGraphsBuilderGraph(id: ID!): GraphsBuilderGraphEntityResponse
   deleteImprint: ImprintEntityResponse
   deleteSerie(id: ID!, locale: I18NLocaleCode): SerieEntityResponse
+  deleteStudio(id: ID!, locale: I18NLocaleCode): StudioEntityResponse
   deleteUploadFile(id: ID!): UploadFileEntityResponse
   deleteUploadFolder(id: ID!): UploadFolderEntityResponse
 
@@ -926,6 +999,7 @@ type Mutation {
   updateApplicationQuestion(data: ApplicationQuestionInput!, id: ID!): ApplicationQuestionEntityResponse
   updateApplicationSession(data: ApplicationSessionInput!, id: ID!): ApplicationSessionEntityResponse
   updateAwesomeHelpHelp(data: AwesomeHelpHelpInput!, id: ID!): AwesomeHelpHelpEntityResponse
+  updateBadge(data: BadgeInput!, id: ID!, locale: I18NLocaleCode): BadgeEntityResponse
   updateCollection(data: CollectionInput!, id: ID!): CollectionEntityResponse
   updateComingSoon(data: ComingSoonInput!, locale: I18NLocaleCode): ComingSoonEntityResponse
   updateContributor(data: ContributorInput!, id: ID!): ContributorEntityResponse
@@ -936,6 +1010,7 @@ type Mutation {
   updateGraphsBuilderGraph(data: GraphsBuilderGraphInput!, id: ID!): GraphsBuilderGraphEntityResponse
   updateImprint(data: ImprintInput!): ImprintEntityResponse
   updateSerie(data: SerieInput!, id: ID!, locale: I18NLocaleCode): SerieEntityResponse
+  updateStudio(data: StudioInput!, id: ID!, locale: I18NLocaleCode): StudioEntityResponse
   updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
   updateUploadFolder(data: UploadFolderInput!, id: ID!): UploadFolderEntityResponse
 
@@ -976,6 +1051,8 @@ type Query {
   applicationSessions(filters: ApplicationSessionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ApplicationSessionEntityResponseCollection
   awesomeHelpHelp(id: ID): AwesomeHelpHelpEntityResponse
   awesomeHelpHelps(filters: AwesomeHelpHelpFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): AwesomeHelpHelpEntityResponseCollection
+  badge(id: ID, locale: I18NLocaleCode): BadgeEntityResponse
+  badges(filters: BadgeFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, sort: [String] = []): BadgeEntityResponseCollection
   collection(id: ID): CollectionEntityResponse
   collections(filters: CollectionFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CollectionEntityResponseCollection
   comingSoon(locale: I18NLocaleCode, publicationState: PublicationState = LIVE): ComingSoonEntityResponse
@@ -994,6 +1071,8 @@ type Query {
   me: UsersPermissionsMe
   serie(id: ID, locale: I18NLocaleCode): SerieEntityResponse
   series(filters: SerieFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): SerieEntityResponseCollection
+  studio(id: ID, locale: I18NLocaleCode): StudioEntityResponse
+  studios(filters: StudioFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, sort: [String] = []): StudioEntityResponseCollection
   uploadFile(id: ID): UploadFileEntityResponse
   uploadFiles(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileEntityResponseCollection
   uploadFolder(id: ID): UploadFolderEntityResponse
@@ -1015,7 +1094,7 @@ type Serie {
   background_image: UploadFileEntityResponse
   contributors(filters: ComponentCommonContributorFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonContributor]
   createdAt: DateTime
-  description: String!
+  description: String
   genre: ENUM_SERIE_GENRE!
   locale: String
   localizations(filters: SerieFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): SerieRelationResponseCollection
@@ -1107,6 +1186,62 @@ input StringFilterInput {
   null: Boolean
   or: [String]
   startsWith: String
+}
+
+type Studio {
+  createdAt: DateTime
+  info: String
+  locale: String
+  localizations(filters: StudioFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): StudioRelationResponseCollection
+  logo: UploadFileEntityResponse!
+  name: String!
+  role: String!
+  updatedAt: DateTime
+  url: String
+  videos(filters: VideoFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): VideoRelationResponseCollection
+}
+
+type StudioEntity {
+  attributes: Studio
+  id: ID
+}
+
+type StudioEntityResponse {
+  data: StudioEntity
+}
+
+type StudioEntityResponseCollection {
+  data: [StudioEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input StudioFiltersInput {
+  and: [StudioFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  info: StringFilterInput
+  locale: StringFilterInput
+  localizations: StudioFiltersInput
+  name: StringFilterInput
+  not: StudioFiltersInput
+  or: [StudioFiltersInput]
+  role: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  url: StringFilterInput
+  videos: VideoFiltersInput
+}
+
+input StudioInput {
+  info: String
+  logo: ID
+  name: String
+  role: String
+  url: String
+  videos: [ID]
+}
+
+type StudioRelationResponseCollection {
+  data: [StudioEntity!]!
 }
 
 """The `Upload` scalar type represents a file upload."""
@@ -1371,14 +1506,15 @@ type UsersPermissionsUpdateRolePayload {
 
 type UsersPermissionsUser {
   admin: Boolean
+  badge(filters: ComponentUserBadgeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentUserBadge]
   blocked: Boolean
   confirmed: Boolean
   createdAt: DateTime
   email: String!
   image: UploadFileEntityResponse
-  patreon: Boolean
   provider: String
   role: UsersPermissionsRoleEntityResponse
+  selected_badge: Int
   updatedAt: DateTime
   username: String!
   watchlist(filters: VideoFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): VideoRelationResponseCollection
@@ -1401,6 +1537,7 @@ type UsersPermissionsUserEntityResponseCollection {
 input UsersPermissionsUserFiltersInput {
   admin: BooleanFilterInput
   and: [UsersPermissionsUserFiltersInput]
+  badge: ComponentUserBadgeFiltersInput
   blocked: BooleanFilterInput
   confirmationToken: StringFilterInput
   confirmed: BooleanFilterInput
@@ -1410,10 +1547,10 @@ input UsersPermissionsUserFiltersInput {
   not: UsersPermissionsUserFiltersInput
   or: [UsersPermissionsUserFiltersInput]
   password: StringFilterInput
-  patreon: BooleanFilterInput
   provider: StringFilterInput
   resetPasswordToken: StringFilterInput
   role: UsersPermissionsRoleFiltersInput
+  selected_badge: IntFilterInput
   updatedAt: DateTimeFilterInput
   username: StringFilterInput
   watchlist: VideoFiltersInput
@@ -1421,16 +1558,17 @@ input UsersPermissionsUserFiltersInput {
 
 input UsersPermissionsUserInput {
   admin: Boolean
+  badge: [ComponentUserBadgeInput]
   blocked: Boolean
   confirmationToken: String
   confirmed: Boolean
   email: String
   image: ID
   password: String
-  patreon: Boolean
   provider: String
   resetPasswordToken: String
   role: ID
+  selected_badge: Int
   username: String
   watchlist: [ID]
 }
@@ -1444,17 +1582,17 @@ type Video {
   background_image: UploadFileEntityResponse
   contributors(filters: ComponentCommonContributorFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonContributor]!
   createdAt: DateTime
-  description: String!
+  description: String
   episode: Int
   genre: ENUM_VIDEO_GENRE!
   locale: String
   localizations(filters: VideoFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): VideoRelationResponseCollection
-  on_watchlist(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
   original: Boolean
   outro_start: Int
   publishedAt: DateTime
   rating: Float
   series: SerieEntityResponse
+  studios(filters: StudioFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): StudioRelationResponseCollection
   thumbnail: UploadFileEntityResponse!
   title: String!
   title_image: UploadFileEntityResponse
@@ -1490,13 +1628,13 @@ input VideoFiltersInput {
   locale: StringFilterInput
   localizations: VideoFiltersInput
   not: VideoFiltersInput
-  on_watchlist: UsersPermissionsUserFiltersInput
   or: [VideoFiltersInput]
   original: BooleanFilterInput
   outro_start: IntFilterInput
   publishedAt: DateTimeFilterInput
   rating: FloatFilterInput
   series: SerieFiltersInput
+  studios: StudioFiltersInput
   title: StringFilterInput
   transcript: StringFilterInput
   updatedAt: DateTimeFilterInput
@@ -1511,12 +1649,12 @@ input VideoInput {
   description: String
   episode: Int
   genre: ENUM_VIDEO_GENRE
-  on_watchlist: [ID]
   original: Boolean
   outro_start: Int
   publishedAt: DateTime
   rating: Float
   series: ID
+  studios: [ID]
   thumbnail: ID
   title: String
   title_image: ID
