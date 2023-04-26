@@ -1,4 +1,20 @@
 {
 	"conventionalCommits.scopes": ["deps", "components", "pages", "utils", "git", "editor", "core"],
-	"cSpell.words": ["houdini"]
+	"cSpell.words": ["houdini"],
+	"gcm-ai.excludeFiles": [
+		"schema.graphql",
+		"^.+\\.(lock|swp|swo)$",
+		"^vendor/",
+		"^node_modules/",
+		"^.+\\.(png|jpg|jpeg|gif|bmp|ico|tiff|woff|woff2|eot|ttf|otf)$",
+		"^.+\\.(log|bak|tmp|temp|backup)$",
+		"^public/generated/",
+		"^dist/",
+		"^build/",
+		"^coverage/",
+		"^.+\\.generated\\..+\\.ts$",
+		"^.+\\.codegen\\..+\\.ts$",
+		"^package-lock\\.json$",
+		"^pnpm-lock\\.yaml$"
+	]
 }
