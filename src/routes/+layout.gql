@@ -1,0 +1,42 @@
+query FeaturedContent {
+    featured {
+        data {
+            attributes {
+                video {
+                    data {
+                        id,
+                        attributes {
+                            title,
+                            title_image {
+                                data {
+                                    attributes {
+                                        url
+                                    }
+                                }
+                            },
+                            background_image {
+                                data {
+                                    attributes {
+                                        url
+                                    }
+                                }
+                            },
+                            year,
+                            series {
+                                data {
+                                    attributes {
+                                        videos {
+                                            data {
+                                                id
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

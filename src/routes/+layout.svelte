@@ -1,9 +1,16 @@
-<script>
+<script lang="ts">
 	import '../app.css';
+	import type { PageData } from './$houdini';
+	import Hero from '../components/Hero/Hero.svelte';
 	import Navbar from '../components/Navbar/Navbar.svelte';
+
+	export let data: PageData;
+	$: ({ FeaturedContent } = data);
 </script>
 
-<Navbar />
+<header>
+	<Navbar />
+</header>
 <main>
 	<slot />
 </main>
