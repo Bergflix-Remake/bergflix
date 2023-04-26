@@ -12,7 +12,7 @@
 
 <style lang="postcss">
 	a {
-		@apply text-delorean-600 transition-all font-bold cursor-pointer no-underline;
+		@apply text-delorean-600 transition-all font-bold cursor-pointer no-underline text-xl;
 	}
 	.active {
 		@apply text-primary-500;
