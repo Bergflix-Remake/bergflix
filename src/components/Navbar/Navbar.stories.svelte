@@ -7,11 +7,7 @@
 <Meta title="Components/Navbar" component={Navbar} />
 
 <Template let:args>
-	<Navbar {...args}>
-		<NavLink href="#">Home</NavLink>
-		<NavLink href="#">About</NavLink>
-		<NavLink href="#">Contact</NavLink>
-	</Navbar>
+	<Navbar {...args} />
 </Template>
 
 <Story name="Default" args={{}} />

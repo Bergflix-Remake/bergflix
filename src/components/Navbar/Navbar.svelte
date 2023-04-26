@@ -28,6 +28,6 @@
 		@apply fixed flex flex-row items-center p-5 w-full bg-gradient-to-b from-black h-20 backdrop-blur-sm;
 	}
 	nav > ul {
-		@apply flex flex-row items-center space-x-3 ml-5;
+		@apply flex flex-row items-center space-x-3 ml-3 list-none;
 	}
 </style>
