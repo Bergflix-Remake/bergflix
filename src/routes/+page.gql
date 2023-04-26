@@ -1,4 +1,4 @@
-query HomePageQuery {
+query Data {
   featured {
     data {
       attributes {

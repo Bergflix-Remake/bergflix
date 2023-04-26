@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$houdini';
 
+	import Hero from '../components/Hero/Hero.svelte';
+	import Layout from './+layout.svelte';
+
 	export let data: PageData;
 
-	$: ({ HomePageQuery } = data);
+	$: ({ Data } = data);
+	$: featured = $Data.data?.featured?.data?.attributes?.video?.data?.attributes;
 </script>
-
-<!-- TODO We really need to find a way to flatten this. -->
-{$HomePageQuery.data?.featured?.data?.attributes?.video?.data?.attributes?.title}
