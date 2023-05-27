@@ -1,24 +1,33 @@
 <script lang="ts">
-	import { TableOfContents, clipboard, toastStore } from '@skeletonlabs/skeleton';
+	import { LightSwitch, TableOfContents, clipboard, toastStore } from '@skeletonlabs/skeleton';
 	import Logo from '../../components/Logo.svelte';
 
-	let devmode = false;
-
-	const colors = [
+	let devMode = false;
+	let classPrefix = 'bg-';
+	const colors: { name: string; color?: string; className?: { [key: string]: string } }[] = [
 		{
 			name: 'Schickes Rot',
 			color: '#ff0230',
-			classname: 'bg-primary-500'
+			className: {
+				'bg-': 'bg-primary-500',
+				'text-': 'text-primary-500'
+			}
 		},
 		{
 			name: 'Schickes Blau',
 			color: '#0d00ff',
-			classname: 'bg-secondary-500'
+			className: {
+				'bg-': 'bg-secondary-500',
+				'text-': 'text-secondary-500'
+			}
 		},
 		{
 			name: 'Schickes Purpur',
 			color: '#00ff23',
-			classname: 'bg-tertiary-500'
+			className: {
+				'bg-': 'bg-tertiary-500',
+				'text-': 'text-tertiary-500'
+			}
 		},
 		{
 			name: 'break'
@@ -26,27 +35,42 @@
 		{
 			name: 'Sauberes Weiss',
 			color: '#ffffff',
-			classname: 'bg-clean-white'
+			className: {
+				'bg-': 'bg-clean-white',
+				'text-': 'text-clean-white'
+			}
 		},
 		{
 			name: 'Plattenbau',
 			color: '#989898',
-			classname: 'bg-concrete-500'
+			className: {
+				'bg-': 'bg-concrete-500',
+				'text-': 'text-concrete-500'
+			}
 		},
 		{
 			name: 'Delorean',
 			color: '#6b6b6b',
-			classname: 'bg-delorean-500'
+			className: {
+				'bg-': 'bg-delorean-500',
+				'text-': 'text-concrete-500'
+			}
 		},
 		{
 			name: 'Sauberes Dunkel',
 			color: '#111111',
-			classname: 'bg-surface-500'
+			className: {
+				'bg-': 'bg-surface-500',
+				'text-': 'text-surface-500'
+			}
 		},
 		{
 			name: 'Dunkelstes Dunkel',
 			color: '#000000',
-			classname: 'bg-darkest-dark'
+			className: {
+				'bg-': 'bg-darkest-dark',
+				'text-': 'text-darkest-dark'
+			}
 		},
 		{
 			name: 'break'
@@ -54,17 +78,26 @@
 		{
 			name: 'Erfolg!',
 			color: '#87e000',
-			classname: 'bg-success-500'
+			className: {
+				'bg-': 'bg-success-500',
+				'text-': 'text-success-500'
+			}
 		},
 		{
 			name: 'Warnung!',
 			color: '#db840a',
-			classname: 'bg-warning-500'
+			className: {
+				'bg-': 'bg-warning-500',
+				'text-': 'text-warning-500'
+			}
 		},
 		{
 			name: 'Fehler!',
 			color: '#db0000',
-			classname: 'bg-error-500'
+			className: {
+				'bg-': 'bg-error-500',
+				'text-': 'text-error-500'
+			}
 		},
 		{
 			name: 'break'
@@ -97,18 +130,33 @@
 				Bergflix möglichst beachtet werden sollte.
 			</p>
 
-			<p class="text-surface-300 italic mt-10">
+			<p class="text-surface-600-300-token italic mt-10">
 				Developer?
 				<label for="devmode">
 					👉 <input
 						class="checkbox mr-2"
 						type="checkbox"
-						bind:checked={devmode}
+						bind:checked={devMode}
 						name="devmode"
 						id="devmode"
 					/>
 					Klassennamen anzeigen</label
 				>
+				{#if devMode}
+					<div class="flex flex-row justify-between">
+						<label for="classPrefix">
+							Klassen Prefix
+							<input
+								class="input"
+								type="text"
+								bind:value={classPrefix}
+								name="classPrefix"
+								id="classPrefix"
+							/>
+						</label>
+						<LightSwitch />
+					</div>
+				{/if}
 			</p>
 		</div>
 	</div>
@@ -134,19 +182,37 @@
 								on:keypress={showSuccessToast}>📋</span
 							>
 						</p>
-						{#if devmode}
+						{#if devMode}
 							<p>
-								<code class="code !text-primary-900-50-token">.{item.classname}</code>
+								<code class="code !text-primary-900-50-token">
+									{#if classPrefix}.{/if}{item.className?.['bg-'].replace(
+										'bg-',
+										classPrefix
+									)}{classPrefix.startsWith('jawohl') ? ' (!)' : ''}</code
+								>
 								<span
 									class="cursor-pointer"
-									use:clipboard={item.classname}
+									use:clipboard={item.className?.['bg-'].replace('bg-', classPrefix)}
 									on:click={showSuccessToast}
 									on:keypress={showSuccessToast}>📋</span
 								>
 							</p>
 						{/if}
 					</figcaption>
-					<div class="swatch {item.classname}" />
+					{#if classPrefix.startsWith('text-')}
+						<div class="swatch {item.className?.['text-']}">
+							<p>{item.name}</p>
+						</div>
+					{:else if classPrefix.startsWith('jawohl')}
+						<div class="swatch {item.className?.['bg-']}">
+							<img
+								src="https://cdn.discordapp.com/emojis/1102957082019364936.webp?size=96&quality=lossless"
+								alt="Jawohl!"
+							/>
+						</div>
+					{:else}
+						<div class="swatch {item.className?.['bg-']}" />
+					{/if}
 				</figure>
 			{/if}
 		{/each}
@@ -159,6 +225,6 @@
 	}
 
 	.swatch {
-		@apply w-full aspect-square rounded-md mt-4;
+		@apply w-full aspect-square rounded-md mt-4 text-center grid place-items-center;
 	}
 </style>
