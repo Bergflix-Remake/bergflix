@@ -1,4 +1,4 @@
-@import url('/font.css');
+@import url('../static/font.css');
 
 ::selection {
 	background: #f40f3a;
