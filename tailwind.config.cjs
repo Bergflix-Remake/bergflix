@@ -1,38 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors');
 module.exports = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		// 2. Append the path for the Skeleton NPM package and files:
+		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+	],
 	theme: {
 		extend: {
 			colors: {
-				primary: {
-					100: '#ffccd6',
-					200: '#ff9aac',
-					300: '#ff6783',
-					400: '#ff3559',
-					500: '#ff0230',
-					600: '#cc0226',
-					700: '#99011d',
-					800: '#660113',
-					900: '#33000a'
-				},
-				// 'primary': '#FF0230',
-				// 'nice-red': '#FF0230',
 				'clean-white': '#FFFFFF',
 				'darkest-dark': '#000000',
-				// 'clean-dark': '#111111',
-				'clean-dark': {
-					100: '#cfcfcf',
-					200: '#a0a0a0',
-					300: '#707070',
-					400: '#414141',
-					500: '#111111',
-					600: '#0e0e0e',
-					700: '#0a0a0a',
-					800: '#070707',
-					900: '#030303'
-				},
-				// 'delorean': '#6B6B6B',
 				delorean: {
 					100: '#e1e1e1',
 					200: '#c4c4c4',
@@ -44,7 +22,6 @@ module.exports = {
 					800: '#2b2b2b',
 					900: '#151515'
 				},
-				// 'concrete': '#989898',
 				concrete: {
 					100: '#eaeaea',
 					200: '#d6d6d6',
@@ -69,5 +46,9 @@ module.exports = {
 			}
 		}
 	},
-	plugins: []
+	plugins: [
+		require('@tailwindcss/forms'),
+		// 3. Append the Skeleton plugin to the end of this list
+		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
+	]
 };
