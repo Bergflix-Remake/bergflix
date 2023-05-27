@@ -1,25 +1,24 @@
 <script>
 	export let short = false;
 	export let className = '';
+	export let gradient = false;
+
+	$: text = short ? 'Bf' : 'Bergflix';
 </script>
 
-<h1 class={className}>
-	{#if short}
-		Bf
-	{:else}
-		Bergflix
-	{/if}
-	<span
-		>.
+<span class="font-extrabold {className}">
+	<span>{text}</span><span class="text-primary-500">.</span>
+	<span class:gradient-heading={gradient}>
 		<slot />
 	</span>
-</h1>
+</span>
 
 <style lang="postcss">
-	h1 {
-		@apply font-extrabold text-white text-3xl;
-	}
-	h1 > span {
-		@apply text-primary-500 font-extrabold;
+	.gradient-heading {
+		@apply bg-clip-text text-transparent box-decoration-clone;
+		/* Direction */
+		@apply bg-gradient-to-br;
+		/* Color Stops */
+		@apply from-primary-500 via-tertiary-500 to-secondary-500;
 	}
 </style>
