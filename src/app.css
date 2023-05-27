@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('/font.css');
 
 ::selection {
 	background: #f40f3a;
 	color: #fff;
 }
 
+html,
 body {
-	@apply bg-clean-dark-700 text-white;
+	@apply h-full overflow-hidden;
 }
