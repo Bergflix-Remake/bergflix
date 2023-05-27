@@ -20,6 +20,7 @@ specifiers:
   '@storybook/testing-library': 0.0.14-next.1
   '@storybook/theming': 7.0.0-beta.62
   '@sveltejs/adapter-auto': ^2.0.0
+  '@sveltejs/adapter-netlify': 1.0.0-next.88
   '@sveltejs/kit': ^1.5.0
   '@tailwindcss/forms': ^0.5.3
   '@typescript-eslint/eslint-plugin': ^5.45.0
@@ -46,13 +47,11 @@ specifiers:
   typescript: ^4.9.3
   vite: ^4.0.0
 
-dependencies:
-  '@floating-ui/dom': 1.2.7
-
 devDependencies:
   '@babel/core': 7.21.0
   '@commitlint/cli': 17.4.4
   '@commitlint/config-conventional': 17.4.4
+  '@floating-ui/dom': 1.2.7
   '@iconify/svelte': 3.1.0_svelte@3.55.1
   '@kitql/all-in': 0.8.7_rddll6dlhgjw7w4sxaj3jk7dpm
   '@playwright/test': 1.31.2
@@ -68,6 +67,7 @@ devDependencies:
   '@storybook/testing-library': 0.0.14-next.1
   '@storybook/theming': 7.0.0-beta.62_biqbaboplfbrettd7655fr4n2y
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.9.3
+  '@sveltejs/adapter-netlify': 1.0.0-next.88_@sveltejs+kit@1.9.3
   '@sveltejs/kit': 1.9.3_svelte@3.55.1+vite@4.1.4
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.7
   '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
@@ -1923,13 +1923,13 @@ packages:
 
   /@floating-ui/core/1.2.6:
     resolution: {integrity: sha512-EvYTiXet5XqweYGClEmpu3BoxmsQ4hkj3QaYA6qEnigCWffTP3vNRwBReTdrwDwo7OoJ3wM8Uoe9Uk4n+d4hfg==}
-    dev: false
+    dev: true
 
   /@floating-ui/dom/1.2.7:
     resolution: {integrity: sha512-DyqylONj1ZaBnzj+uBnVfzdjjCkFCL2aA9ESHLyUOGSqb03RpbLMImP1ekIQXYs4KLk9jAjJfZAU8hXfWSahEg==}
     dependencies:
       '@floating-ui/core': 1.2.6
-    dev: false
+    dev: true
 
   /@graphql-codegen/cli/3.2.1_d3mj2bptzx6wwjbl4ipv3yrpna:
     resolution: {integrity: sha512-AeXzOvhSgAyMC0TzIoc6/HIc2Fy2rCZJcs5pt1LDypn1k4gpGRzqZ5JOjYx+XIna2hLfB9NbAkcO5dcdHwFdJA==}
@@ -4012,6 +4012,17 @@ packages:
     dependencies:
       '@sveltejs/kit': 1.9.3_svelte@3.55.1+vite@4.1.4
       import-meta-resolve: 2.2.1
+    dev: true
+
+  /@sveltejs/adapter-netlify/1.0.0-next.88_@sveltejs+kit@1.9.3:
+    resolution: {integrity: sha512-vUuG1++iQJvNPR6E9S9eYSRRudQnrDHEyLzV9c4dWQjQ4u12papwag4EAqTSxXxWiE4d1MEtH0p0p25W55uKNQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.0.0-next.587
+    dependencies:
+      '@iarna/toml': 2.2.5
+      '@sveltejs/kit': 1.9.3_svelte@3.55.1+vite@4.1.4
+      esbuild: 0.16.17
+      set-cookie-parser: 2.5.1
     dev: true
 
   /@sveltejs/kit/1.9.3_svelte@3.55.1+vite@4.1.4:
