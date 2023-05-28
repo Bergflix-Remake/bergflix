@@ -23,7 +23,7 @@
 		},
 		{
 			name: 'Schickes Purpur',
-			color: '#00ff23',
+			color: '#bb00ff',
 			className: {
 				'bg-': 'bg-tertiary-500',
 				'text-': 'text-tertiary-500'
