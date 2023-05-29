@@ -26,7 +26,7 @@
 		</div>
 		<div class="h-auto mt-8 sm:w-1/4 sm:mt-0">
 			<div class="mb-2 font-bold text-delorean">
-				<Logo gradient={true}>Brand</Logo>
+				<Logo>Brand</Logo>
 			</div>
 			<ul class="leading-normal list-reset">
 				<li>
@@ -40,21 +40,17 @@
 		<div class="h-auto mt-8 sm:w-1/4 sm:mt-0">
 			<div class="mb-2 font-bold text-delorean">Rechtliches & Hilfe</div>
 			<ul class="leading-normal list-reset">
-				<!-- <li>
-                    <Link :to="{ name: 'legal', hash: '#privacy'}">
-                    Datenschutz<span class="hidden md:inline">erklärung</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link :to="{ name: 'legal', hash: '#imprint' }">
-                    Impressum
-                    </Link>
-                </li>
-                <li>
-                    <Link :to="{ name: 'legal', hash: '#terms' }">
-                    Benutzungsbedingungen
-                    </Link>
-                </li> -->
+				<li>
+					<Link href="/legal#privacy">
+						Datenschutz<span class="hidden md:inline">erklärung</span>
+					</Link>
+				</li>
+				<li>
+					<Link href="/legal#imprint">Impressum</Link>
+				</li>
+				<li>
+					<Link href="/legal#terms">Benutzungsbedingungen</Link>
+				</li>
 			</ul>
 		</div>
 		<div class="h-auto mt-8 sm:w-1/4 sm:mt-0">
