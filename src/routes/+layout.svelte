@@ -1,5 +1,6 @@
 <script>
 	import Navbar from '../components/Navbar/Navbar.svelte';
+	import Footer from '../components/Footer/Footer.svelte';
 	import { AppShell, Modal, Toast } from '@skeletonlabs/skeleton';
 
 	// Setup Skeleton's global styles:
@@ -24,6 +25,7 @@
 		<Navbar />
 	</svelte:fragment>
 	<slot />
+	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
 
 <style lang="postcss">

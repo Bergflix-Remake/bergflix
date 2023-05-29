@@ -8,7 +8,7 @@
 
 <span class="font-extrabold {className}">
 	<span>{text}</span><span class="text-primary-500">.</span>
-	<span class:gradient-heading={gradient}>
+	<span class:gradient-heading={gradient} class:text-primary-500={!gradient}>
 		<slot />
 	</span>
 </span>
