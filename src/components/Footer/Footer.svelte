@@ -14,13 +14,13 @@
 			<div class="mb-2 font-bold text-delorean">Social Media</div>
 			<ul class="leading-normal list-reset">
 				<li>
-					<Link icon="ExternalLinkIcon" href="https://bflx.de/instagram">Instagram</Link>
+					<Link icon="external-link-line" href="https://bflx.de/instagram">Instagram</Link>
 				</li>
 				<li>
-					<Link icon="ExternalLinkIcon" href="https://bflx.de/discord">Discord</Link>
+					<Link icon="external-link-line" href="https://bflx.de/discord">Discord</Link>
 				</li>
 				<li>
-					<Link icon="ExternalLinkIcon" href="https://bflx.de/twitter">Twitter</Link>
+					<Link icon="external-link-line" href="https://bflx.de/twitter">Twitter</Link>
 				</li>
 			</ul>
 		</div>
@@ -33,7 +33,7 @@
 					<Link href="https://bflx.de/discord">Mithelfen</Link>
 				</li>
 				<li>
-					<Link icon="ExclamationIcon" href="https://bflx.de/bug-report">Fehler Melden</Link>
+					<Link icon="alert-fill" href="https://bflx.de/bug-report">Fehler Melden</Link>
 				</li>
 			</ul>
 		</div>
@@ -61,12 +61,12 @@
 			<div class="mb-2 font-bold text-delorean">Mehr von "Herr Bergmann"</div>
 			<ul class="leading-normal list-reset">
 				<li>
-					<Link icon="ExternalLinkIcon" href="https://discord.gg/fromthefuture">
+					<Link icon="external-link-line" href="https://discord.gg/fromthefuture">
 						Trete der “FTF”-Redaktion bei
 					</Link>
 				</li>
 				<li>
-					<Link icon="ExternalLinkIcon" href="https://www.patreon.com/herrbergmann">
+					<Link icon="external-link-line" href="https://www.patreon.com/herrbergmann">
 						Unterstütze seine Projekte
 					</Link>
 				</li>
