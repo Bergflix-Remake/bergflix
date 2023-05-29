@@ -14,13 +14,13 @@
 			<div class="mb-2 font-bold text-delorean">Social Media</div>
 			<ul class="leading-normal list-reset">
 				<li>
-					<Link icon="external-link-line" href="https://bflx.de/instagram">Instagram</Link>
+					<Link href="https://bflx.de/instagram">Instagram</Link>
 				</li>
 				<li>
-					<Link icon="external-link-line" href="https://bflx.de/discord">Discord</Link>
+					<Link href="https://bflx.de/discord">Discord</Link>
 				</li>
 				<li>
-					<Link icon="external-link-line" href="https://bflx.de/twitter">Twitter</Link>
+					<Link href="https://bflx.de/twitter">Twitter</Link>
 				</li>
 			</ul>
 		</div>
@@ -57,14 +57,10 @@
 			<div class="mb-2 font-bold text-delorean">Mehr von "Herr Bergmann"</div>
 			<ul class="leading-normal list-reset">
 				<li>
-					<Link icon="external-link-line" href="https://discord.gg/fromthefuture">
-						Trete der “FTF”-Redaktion bei
-					</Link>
+					<Link href="https://discord.gg/fromthefuture">Trete der “FTF”-Redaktion bei</Link>
 				</li>
 				<li>
-					<Link icon="external-link-line" href="https://www.patreon.com/herrbergmann">
-						Unterstütze seine Projekte
-					</Link>
+					<Link href="https://www.patreon.com/herrbergmann">Unterstütze seine Projekte</Link>
 				</li>
 			</ul>
 		</div>
