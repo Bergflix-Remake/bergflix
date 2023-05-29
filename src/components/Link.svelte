@@ -10,7 +10,7 @@
 	{href}
 	target={isExternal ? '_blank' : undefined}
 	rel={isExternal ? 'noopener noreferrer' : undefined}
-	class="font-bold text-white ease-in-out cursor-pointer h-min border-b-primary-500 hover:border-b-2 transition-border w-max group"
+	class="font-bold ease-in-out cursor-pointer h-min border-b-primary-500 hover:border-b-2 transition-border w-max group"
 >
 	{#if icon}
 		<!-- Icon Component -->
