@@ -4,29 +4,29 @@
 
 	let devMode = false;
 	let classPrefix = 'bg-';
-	const colors: { name: string; color?: string; className?: { [key: string]: string } }[] = [
+	const colors: { name: string; color?: string; className?: { bg: string; text: string } }[] = [
 		{
 			name: 'Schickes Rot',
 			color: '#ff0230',
 			className: {
-				'bg-': 'bg-primary-500',
-				'text-': 'text-primary-500'
+				bg: 'bg-primary-500',
+				text: 'text-primary-500'
 			}
 		},
 		{
 			name: 'Schickes Blau',
 			color: '#0d00ff',
 			className: {
-				'bg-': 'bg-secondary-500',
-				'text-': 'text-secondary-500'
+				bg: 'bg-secondary-500',
+				text: 'text-secondary-500'
 			}
 		},
 		{
 			name: 'Schickes Purpur',
 			color: '#bb00ff',
 			className: {
-				'bg-': 'bg-tertiary-500',
-				'text-': 'text-tertiary-500'
+				bg: 'bg-tertiary-500',
+				text: 'text-tertiary-500'
 			}
 		},
 		{
@@ -36,40 +36,40 @@
 			name: 'Sauberes Weiss',
 			color: '#ffffff',
 			className: {
-				'bg-': 'bg-clean-white',
-				'text-': 'text-clean-white'
+				bg: 'bg-clean-white',
+				text: 'text-clean-white'
 			}
 		},
 		{
 			name: 'Plattenbau',
 			color: '#989898',
 			className: {
-				'bg-': 'bg-concrete-500',
-				'text-': 'text-concrete-500'
+				bg: 'bg-concrete-500',
+				text: 'text-concrete-500'
 			}
 		},
 		{
 			name: 'Delorean',
 			color: '#6b6b6b',
 			className: {
-				'bg-': 'bg-delorean-500',
-				'text-': 'text-concrete-500'
+				bg: 'bg-delorean-500',
+				text: 'text-concrete-500'
 			}
 		},
 		{
 			name: 'Sauberes Dunkel',
 			color: '#111111',
 			className: {
-				'bg-': 'bg-surface-500',
-				'text-': 'text-surface-500'
+				bg: 'bg-surface-500',
+				text: 'text-surface-500'
 			}
 		},
 		{
 			name: 'Dunkelstes Dunkel',
 			color: '#000000',
 			className: {
-				'bg-': 'bg-darkest-dark',
-				'text-': 'text-darkest-dark'
+				bg: 'bg-darkest-dark',
+				text: 'text-darkest-dark'
 			}
 		},
 		{
@@ -79,24 +79,24 @@
 			name: 'Erfolg!',
 			color: '#87e000',
 			className: {
-				'bg-': 'bg-success-500',
-				'text-': 'text-success-500'
+				bg: 'bg-success-500',
+				text: 'text-success-500'
 			}
 		},
 		{
 			name: 'Warnung!',
 			color: '#db840a',
 			className: {
-				'bg-': 'bg-warning-500',
-				'text-': 'text-warning-500'
+				bg: 'bg-warning-500',
+				text: 'text-warning-500'
 			}
 		},
 		{
 			name: 'Fehler!',
 			color: '#db0000',
 			className: {
-				'bg-': 'bg-error-500',
-				'text-': 'text-error-500'
+				bg: 'bg-error-500',
+				text: 'text-error-500'
 			}
 		},
 		{
@@ -185,14 +185,14 @@
 						{#if devMode}
 							<p>
 								<code class="code !text-primary-900-50-token">
-									{#if classPrefix}.{/if}{item.className?.['bg-'].replace(
+									{#if classPrefix}.{/if}{item.className?.bg.replace(
 										'bg-',
 										classPrefix
 									)}{classPrefix.startsWith('jawohl') ? ' (!)' : ''}</code
 								>
 								<span
 									class="cursor-pointer"
-									use:clipboard={item.className?.['bg-'].replace('bg-', classPrefix)}
+									use:clipboard={item.className?.bg.replace('bg-', classPrefix)}
 									on:click={showSuccessToast}
 									on:keypress={showSuccessToast}>📋</span
 								>
@@ -200,18 +200,18 @@
 						{/if}
 					</figcaption>
 					{#if classPrefix.startsWith('text-')}
-						<div class="swatch {item.className?.['text-']}">
+						<div class="swatch {item.className?.text}">
 							<p>{item.name}</p>
 						</div>
 					{:else if classPrefix.startsWith('jawohl')}
-						<div class="swatch {item.className?.['bg-']}">
+						<div class="swatch {item.className?.bg}">
 							<img
 								src="https://cdn.discordapp.com/emojis/1102957082019364936.webp?size=96&quality=lossless"
 								alt="Jawohl!"
 							/>
 						</div>
 					{:else}
-						<div class="swatch {item.className?.['bg-']}" />
+						<div class="swatch {item.className?.bg}" />
 					{/if}
 				</figure>
 			{/if}
