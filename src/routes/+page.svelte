@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/translations';
+	import { title } from '$lib/utils/meta';
 	import { base, typeUrl } from '$lib/utils/paths';
 	import Hero from '../components/Hero/Hero.svelte';
 	import type { PageData } from './$houdini';
@@ -8,6 +9,16 @@
 
 	$: ({ HomePageQuery } = data);
 </script>
+
+<svelte:head>
+	<title
+		>{title(
+			$t('home.title', {
+				featured: $HomePageQuery.data?.featured?.data?.attributes?.video?.data?.attributes?.title
+			})
+		)}</title
+	>
+</svelte:head>
 
 <Hero
 	title={{
