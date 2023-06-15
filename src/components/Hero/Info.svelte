@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Info from './Info.svelte';
-
 	import InfoRow from './InfoRow.svelte';
 
 	import type { MediaType } from '$lib/models/common';
@@ -11,26 +9,33 @@
 
 	export let title: { text: string; image?: string };
 	export let description: string;
-	export let image: string;
 	export let date: string;
 	export let age: number;
 	export let genre: string;
 	export let type: MediaType;
 	export let buttons: { text: string; to: string; icon?: string }[];
+
+	export let classList = '';
 </script>
 
-<section
-	class="relative w-full h-screen bg-cover bg-no-repeat"
-	style="background-image: url('{image}');"
->
-	<div
-		class="grid md:grid-cols-2 grid-cols-1 grid-rows-1 h-full w-full place-items-center md:place-items-center"
-	>
-		<Info {title} {description} {date} {age} {genre} {type} {buttons} />
+<div class="flex flex-col w-full p-5 {classList}">
+	<Title height="max-h-60" width="max-w-md" image={base(title.image)}>{title.text}</Title>
+	<InfoRow {genre} {type} {date} {age} />
+	<p class="text-delorean-400 text-lg font-light">
+		{description}
+	</p>
+	<div class="flex flex-row gap-2">
+		{#each buttons as button, i}
+			<Button
+				href={button.to}
+				icon={button.icon}
+				variant={i == 0 ? 'variant-filled-primary' : 'variant-soft-primary'}
+			>
+				{button.text}
+			</Button>
+		{/each}
 	</div>
-
-	<div class="absolute top-0 left-0 w-full h-full gradient z-0" />
-</section>
+</div>
 
 <style scoped>
 	.gradient {
