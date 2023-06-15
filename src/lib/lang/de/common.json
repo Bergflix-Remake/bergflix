@@ -1,0 +1,15 @@
+{
+	"mediaTypes": {
+		"movie": "Film",
+		"series": "Serie",
+		"episode": "Episode",
+		"collection": "Kollektion"
+	},
+	"genres": {
+		"action": "Action"
+	},
+	"actions": {
+		"watch": "Jetzt ansehen",
+		"details": "Details"
+	}
+}
