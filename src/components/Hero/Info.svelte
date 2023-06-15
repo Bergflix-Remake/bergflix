@@ -18,13 +18,13 @@
 	export let classList = '';
 </script>
 
-<div class="flex flex-col w-full p-5 {classList}">
-	<Title height="max-h-60" width="max-w-md" image={base(title.image)}>{title.text}</Title>
+<div class="flex flex-col w-full p-5 sm:items-start items-center {classList}">
+	<Title height="max-h-60" width="max-w-md w-full" image={base(title.image)}>{title.text}</Title>
 	<InfoRow {genre} {type} {date} {age} />
 	<p class="text-delorean-400 text-lg font-light">
 		{description}
 	</p>
-	<div class="flex flex-row gap-2">
+	<div class="flex flex-row gap-2 flex-wrap justify-center">
 		{#each buttons as button, i}
 			<Button
 				href={button.to}
@@ -36,10 +36,3 @@
 		{/each}
 	</div>
 </div>
-
-<style scoped>
-	.gradient {
-		background: rgb(0, 0, 0);
-		background: radial-gradient(at top right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60%);
-	}
-</style>

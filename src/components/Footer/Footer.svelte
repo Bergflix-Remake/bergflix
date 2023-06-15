@@ -3,7 +3,7 @@
 	import Logo from '../Logo.svelte';
 </script>
 
-<footer class="w-full p-8 shadow-[35px_35px_60px_15px_rgba(0,0,0,0.3)] pb-20 md:pb-8">
+<footer class="w-full p-8 shadow-inner pb-20 md:pb-8 z-50 bg-surface-100-800-token">
 	<div class="mb-4 sm:flex">
 		<div
 			class="h-auto text-3xl text-center sm:w-1/12 sm:text-sm md:text-base lg:text-lg xl:text-2xl"
