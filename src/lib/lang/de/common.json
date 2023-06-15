@@ -1,4 +1,6 @@
 {
+	"name": "Bergflix",
+	"title": "{{title; default:Hochqualitative Machinima's - Kostenlos!}} • {{site}}.",
 	"mediaTypes": {
 		"movie": "Film",
 		"series": "Serie",
@@ -11,5 +13,24 @@
 	"actions": {
 		"watch": "Jetzt ansehen",
 		"details": "Details"
+	},
+	"errorCodes": {
+		"404": {
+			"title": "Nicht gefunden",
+			"quote": "Le Flambeur ist nicht hier...",
+			"description": "Die Seite, die du suchst, existiert nicht.\nHast du die richtige URL eingegeben?"
+		},
+		"500": {
+			"title": "Interner Serverfehler",
+			"quote": "[Insert witty quote here]",
+			"description": "Es gab einen Fehler auf unserer Seite.\nBitte überprüfe ob alle URL-Parameter korrekt sind.\nWenn das Problem weiterhin besteht, kontaktiere uns bitte."
+		},
+		"default": {
+			"title": "Fehler",
+			"quote": "Erst die Internetverbindung, dann der Radar...",
+			"description": "Es gab einen Fehler! Bitte versuche es später noch einmal."
+		},
+		"title": "{{code}} - {{title}}!",
+		"back": "Zurück zur Startseite"
 	}
 }
