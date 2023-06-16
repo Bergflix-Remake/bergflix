@@ -33,5 +33,23 @@
 		},
 		"title": "{{code}} - {{title}}!",
 		"back": "Zurück zur Startseite"
+	},
+	"footer": {
+		"brand": {
+			"contribute": "Mithelfen",
+			"bug-report": "Fehler melden",
+			"donate": "Spenden"
+		},
+		"legal": {
+			"title": "Rechtliches",
+			"privacy-policy": "Datenschutz",
+			"terms-of-service": "Nutzungsbedingungen",
+			"imprint": "Impressum"
+		},
+		"bergmann": {
+			"title": "Mehr von Bergmann",
+			"ftf-discord": "\"FTF\"-Discord",
+			"patreon": "Unterstütze Bermann"
+		}
 	}
 }
