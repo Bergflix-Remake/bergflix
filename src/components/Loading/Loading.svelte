@@ -1,23 +1,20 @@
 <script lang="ts">
-	export let animation = 'bricks';
-	const animationList: readonly string[] = [
-		'elastic',
-		'pulse',
-		'flashing',
-		'collision',
-		'revolution',
-		'carousel',
-		'typing',
-		'windmill',
-		'bricks',
-		'floating',
-		'fire',
-		'spin',
-		'falling',
-		'stretching'
-	];
-
-	animation = animationList.includes(animation) ? animation : 'bricks';
+	type Animations =
+		| 'elastic'
+		| 'pulse'
+		| 'flashing'
+		| 'collision'
+		| 'revolution'
+		| 'carousel'
+		| 'typing'
+		| 'windmill'
+		| 'bricks'
+		| 'floating'
+		| 'fire'
+		| 'spin'
+		| 'falling'
+		| 'stretching';
+	export let animation: Animations = 'bricks';
 </script>
 
 <div class="relative">
