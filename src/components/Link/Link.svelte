@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { iconpack } from '$lib/utils/icon';
 	import Icon from '@iconify/svelte';
 	export let href: string;
 	export let icon = '';
 
 	$: isExternal = href.includes('http');
+	$: icon = iconpack(icon);
 </script>
 
 <a
@@ -14,7 +16,7 @@
 >
 	{#if icon}
 		<!-- Icon Component -->
-		<Icon icon={`mingcute:${icon}`} class="inline w-6 h-6 mb-1 mr-1 group-hover:text-primary-500" />
+		<Icon {icon} class="inline w-6 h-6 mb-1 mr-1 group-hover:text-primary-500" />
 	{:else if isExternal}
 		<!-- External Link Icon -->
 		<Icon

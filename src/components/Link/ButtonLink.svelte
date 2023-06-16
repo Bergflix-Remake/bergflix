@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { iconpack } from '$lib/utils/icon';
 	import Icon from '@iconify/svelte';
 	export let href: string;
 	export let icon = '';
 	export let variant = 'variant-filled-primary';
 
 	$: isExternal = href.includes('http');
+	$: icon = iconpack(icon);
 </script>
 
 <a
@@ -16,7 +18,7 @@
 	<span class="grid place-items-center">
 		{#if icon}
 			<!-- Icon Component -->
-			<Icon icon={`mingcute:${icon}`} class="inline w-5 h-5" />
+			<Icon {icon} class="inline w-5 h-5" />
 		{:else if isExternal}
 			<!-- External Link Icon -->
 			<Icon icon={'mingcute:external-link-line'} />
