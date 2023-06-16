@@ -1,5 +1,6 @@
 {
 	"name": "Bergflix",
+	"shortName": "Bf",
 	"title": "{{title; default:Hochqualitative Machinima's - Kostenlos!}} • {{site}}.",
 	"mediaTypes": {
 		"movie": "Film",

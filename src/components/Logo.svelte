@@ -1,9 +1,11 @@
 <script>
+	import { t } from '$lib/translations';
+
 	export let short = false;
 	export let className = '';
 	export let gradient = false;
 
-	$: text = short ? 'Bf' : 'Bergflix';
+	$: text = short ? $t('common.shortName') : $t('common.name');
 </script>
 
 <span class="font-extrabold {className}">
