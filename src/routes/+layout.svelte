@@ -11,6 +11,9 @@
 	// App Stylesheet
 	import '../app.css';
 
+	// Three Dots Loading Spinner animations
+	import '../three-dots.css';
+
 	// FloatingUI
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
