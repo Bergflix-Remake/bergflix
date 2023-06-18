@@ -2,6 +2,7 @@
 	import { iconpack } from '$lib/utils/icon';
 	import Icon from '@iconify/svelte';
 	import Logo from '../Logo.svelte';
+	import Loading from '../Loading/Loading.svelte';
 
 	export let url: string;
 	export let original: boolean;
@@ -18,7 +19,7 @@
 			<p>Es gab einen Fehler. Bitte versuche es nochmal.</p>
 		</div>
 	{:else if loading}
-		<!-- Loading -->
+		<Loading />
 	{:else}
 		<img src={url} alt="Thumbnail of..." />
 		{#if original}
