@@ -1,4 +1,5 @@
 {
 	"conventionalCommits.scopes": ["deps", "components", "pages", "utils", "git", "editor", "core"],
-	"cSpell.words": ["skeletonlabs", "tailwindcss", "bergflix"]
+	"cSpell.words": ["skeletonlabs", "tailwindcss", "bergflix"],
+	"i18n-ally.localesPaths": ["src/lib/lang"]
 }
