@@ -29,7 +29,7 @@
 		"default": {
 			"title": "Fehler",
 			"quote": "Erst die Internetverbindung, dann der Radar...",
-			"description": "Es gab einen Fehler! Bitte versuche es später noch einmal."
+			"description": "Es gab einen Fehler!"
 		},
 		"title": "{{code}} - {{title}}!",
 		"back": "Zurück zur Startseite"
