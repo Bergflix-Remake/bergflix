@@ -15,7 +15,7 @@
 >
 	{#if error}
 		<div class="flex flex-col items-center justify-center text-red-500">
-			<Icon icon={'alert-fill'} class="w-10 h-10" />
+			<Icon icon={iconpack('alert-fill')} class="w-10 h-10" />
 			<p>Es gab einen Fehler. Bitte versuche es nochmal.</p>
 		</div>
 	{:else if loading}
