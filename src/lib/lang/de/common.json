@@ -1,19 +1,34 @@
 {
-	"name": "Bergflix",
-	"shortName": "Bf",
 	"title": "{{title; default:Hochqualitative Machinima's - Kostenlos!}} • {{site}}.",
+	"shortName": "Bf",
+	"original": "Original",
+	"name": "Bergflix",
 	"mediaTypes": {
-		"movie": "Film",
 		"series": "Serie",
+		"movie": "Film",
 		"episode": "Episode",
 		"collection": "Kollektion"
 	},
 	"genres": {
 		"action": "Action"
 	},
-	"actions": {
-		"watch": "Jetzt ansehen",
-		"details": "Details"
+	"footer": {
+		"legal": {
+			"title": "Rechtliches",
+			"terms-of-service": "Nutzungsbedingungen",
+			"privacy-policy": "Datenschutz",
+			"imprint": "Impressum"
+		},
+		"brand": {
+			"donate": "Spenden",
+			"contribute": "Mithelfen",
+			"bug-report": "Fehler melden"
+		},
+		"bergmann": {
+			"title": "Mehr von Bergmann",
+			"patreon": "Unterstütze Bermann",
+			"ftf-discord": "\"FTF\"-Discord"
+		}
 	},
 	"errorCodes": {
 		"404": {
@@ -26,30 +41,16 @@
 			"quote": "[Insert witty quote here]",
 			"description": "Es gab einen Fehler auf unserer Seite.\nBitte überprüfe ob alle URL-Parameter korrekt sind.\nWenn das Problem weiterhin besteht, kontaktiere uns bitte."
 		},
+		"title": "{{code}} - {{title}}!",
 		"default": {
 			"title": "Fehler",
 			"quote": "Erst die Internetverbindung, dann der Radar...",
 			"description": "Es gab einen Fehler!"
 		},
-		"title": "{{code}} - {{title}}!",
 		"back": "Zurück zur Startseite"
 	},
-	"footer": {
-		"brand": {
-			"contribute": "Mithelfen",
-			"bug-report": "Fehler melden",
-			"donate": "Spenden"
-		},
-		"legal": {
-			"title": "Rechtliches",
-			"privacy-policy": "Datenschutz",
-			"terms-of-service": "Nutzungsbedingungen",
-			"imprint": "Impressum"
-		},
-		"bergmann": {
-			"title": "Mehr von Bergmann",
-			"ftf-discord": "\"FTF\"-Discord",
-			"patreon": "Unterstütze Bermann"
-		}
+	"actions": {
+		"watch": "Jetzt ansehen",
+		"details": "Details"
 	}
 }

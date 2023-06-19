@@ -29,7 +29,7 @@
 		<img src={url} alt={state.message ?? 'Thumbnail'} />
 		{#if original}
 			<div class="absolute flex top-2 right-2">
-				<Logo className="!text-base">Original</Logo>
+				<Logo className="!text-base">{$t('common.original')}</Logo>
 			</div>
 		{/if}
 	{/if}
