@@ -1,5 +1,7 @@
 {
 	"conventionalCommits.scopes": ["deps", "components", "pages", "utils", "git", "editor", "core"],
 	"cSpell.words": ["skeletonlabs", "tailwindcss", "bergflix"],
-	"i18n-ally.localesPaths": ["src/lib/lang"]
+	"i18n-ally.localesPaths": ["src/lib/lang"],
+	"i18n-ally.namespace": true,
+	"i18n-ally.keystyle": "nested"
 }
