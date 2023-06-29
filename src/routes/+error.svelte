@@ -19,17 +19,17 @@
 <article class="grid place-items-center h-screen w-full">
 	<div class="flex flex-col items-center p-5">
 		<h1 class="errorcode">{$page.status}</h1>
-		<h2 class="font-upheaval h2">
+		<h2 class="font-upheaval h2 text-center">
 			{$t(`common.errorCodes.${$page.status}.quote`, {
 				default: $t('common.errorCodes.default.quote')
 			})}
 		</h2>
-		<p class="max-w-md text-center w-full whitespace-pre">
+		<p class="max-w-md text-center w-full">
 			{$t(`common.errorCodes.${$page.status}.description`, {
 				default: $t('common.errorCodes.default.description')
 			})}
-			<Link href="/">{$t('common.errorCodes.back')}</Link>
 		</p>
+		<Link href="/">{$t('common.errorCodes.back')}</Link>
 	</div>
 </article>
 
