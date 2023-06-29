@@ -1,5 +1,5 @@
 <script>
-	import Navbar from '../components/Navbar/Navbar.svelte';
+	import DesktopNav from '../components/Navbar/DesktopNav.svelte';
 	import Footer from '../components/Footer/Footer.svelte';
 	import { AppShell, Modal, Toast } from '@skeletonlabs/skeleton';
 	import { t } from '$lib/translations';
@@ -18,6 +18,7 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	import { title } from '$lib/utils/meta';
+	import MobileNav from '../components/Navbar/MobileNav.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
@@ -29,12 +30,15 @@
 <Toast background="variant-filled-primary" position="bl" />
 <Modal />
 
-<AppShell>
+<AppShell slotHeader="absolute top-0 w-full z-50" slotFooter="absolute bottom-0 w-full" class="">
 	<svelte:fragment slot="header">
-		<Navbar />
+		<DesktopNav />
 	</svelte:fragment>
 	<slot />
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
+	<svelte:fragment slot="footer">
+		<MobileNav />
+	</svelte:fragment>
 </AppShell>
 
 <style lang="postcss">

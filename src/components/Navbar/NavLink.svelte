@@ -1,14 +1,22 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { iconpack } from '$lib/utils/icon';
+	import Icon from '@iconify/svelte';
 	export let href = '';
 	export let active = false;
-	$: isActive = active;
-	if ($page.route) {
-		isActive = $page.route.id === href;
-	}
+	export let icon: string;
+
+	$: icon = iconpack(icon);
+
+	$: isActive = $page.route.id === href || active;
 </script>
 
-<a {href} class={isActive ? 'active' : ''}><slot /></a>
+<a {href} class:active={isActive}>
+	<span class="md:block hidden">
+		<slot />
+	</span>
+	<Icon {icon} class="md:hidden text-3xl" />
+</a>
 
 <style lang="postcss">
 	a {

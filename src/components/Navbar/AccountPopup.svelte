@@ -1,25 +1,18 @@
+<script context="module" lang="ts">
+	export const popupSettings: PopupSettings = {
+		event: 'click',
+		target: 'userPopup'
+	};
+</script>
+
 <script lang="ts">
 	import {
-		popup,
 		toastStore,
 		type PopupSettings,
 		type ModalSettings,
 		modalStore,
-		LightSwitch,
-		Avatar
+		LightSwitch
 	} from '@skeletonlabs/skeleton';
-	import Logo from '../Logo.svelte';
-	import NavLink from './NavLink.svelte';
-	const navItems = [
-		{ name: 'Home', href: '/' },
-		{ name: 'About', href: '/about' },
-		{ name: 'Contact', href: '/contact' }
-	];
-
-	const popupSettings: PopupSettings = {
-		event: 'click',
-		target: 'userPopup'
-	};
 
 	const showToast = () =>
 		toastStore.trigger({
@@ -41,22 +34,6 @@
 	const showModal = () => modalStore.trigger(prompt);
 </script>
 
-<nav>
-	<h1 class="h2">
-		<Logo />
-	</h1>
-	<ul>
-		{#each navItems as item}
-			<li>
-				<NavLink href={item.href}>{item.name}</NavLink>
-			</li>
-		{/each}
-	</ul>
-	<div class="ml-auto cursor-pointer" use:popup={popupSettings}>
-		<Avatar initials="AB" />
-	</div>
-</nav>
-
 <div data-popup="userPopup" class="userPopup card hidden pointer-events-none">
 	<div class="flex flex-row justify-between">
 		<p class="text-delorean-600">Welcome, Guest!</p>
@@ -67,13 +44,6 @@
 </div>
 
 <style lang="postcss">
-	nav {
-		@apply flex flex-row items-center p-5 w-full h-20 backdrop-blur-sm shadow-lg;
-	}
-	nav > ul {
-		@apply flex flex-row items-center space-x-3 ml-5;
-	}
-
 	.userPopup {
 		@apply w-64 p-5 rounded-lg !flex flex-col space-y-3 opacity-0;
 	}

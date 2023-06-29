@@ -4,10 +4,22 @@
 	"original": "Original",
 	"name": "Bergflix",
 	"mediaTypes": {
-		"series": "Serie",
-		"movie": "Film",
-		"episode": "Episode",
-		"collection": "Kollektion"
+		"movie": {
+			"singular": "Film",
+			"plural": "Filme"
+		},
+		"series": {
+			"singular": "Serie",
+			"plural": "Serien"
+		},
+		"episode": {
+			"singular": "Episode",
+			"plural": "Episoden"
+		},
+		"collection": {
+			"singular": "Kollektion",
+			"plural": "Kollektionen"
+		}
 	},
 	"genres": {
 		"action": "Action"
@@ -52,5 +64,8 @@
 	"actions": {
 		"watch": "Jetzt ansehen",
 		"details": "Details"
+	},
+	"navbar": {
+		"home": "Start"
 	}
 }
