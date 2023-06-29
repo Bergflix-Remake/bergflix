@@ -19,7 +19,7 @@
 		{age}+
 	</span>
 	<span>
-		{$t('common.mediaTypes.' + type.toLowerCase())}
+		{$t(`common.mediaTypes.${type.toLowerCase()}.singular`)}
 	</span>
 	<!-- Seperator -->
 	<span class="w-1 h-1 rounded-full bg-gray-400" />
