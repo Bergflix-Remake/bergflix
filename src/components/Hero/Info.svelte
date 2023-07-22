@@ -22,7 +22,7 @@
 	<Title height="max-h-60" width="max-w-md w-full" image={base(title.image)}>{title.text}</Title>
 	<InfoRow {genre} {type} {date} {age} />
 	<p class="text-delorean-400 text-lg font-light text-center md:text-justify">
-		{description}
+		{@html description}
 	</p>
 	<div class="flex flex-row gap-2 flex-wrap justify-center">
 		{#each buttons as button, i}

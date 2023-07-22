@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import DesktopNav from '../components/Navbar/DesktopNav.svelte';
 	import Footer from '../components/Footer/Footer.svelte';
 	import { AppShell, Modal, Toast } from '@skeletonlabs/skeleton';

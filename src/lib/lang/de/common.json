@@ -22,7 +22,23 @@
 		}
 	},
 	"genres": {
-		"action": "Action"
+		"action": "Action",
+		"adventure": "Abenteuer",
+		"animation": "Animation",
+		"comedy": "Komödie",
+		"crime": "Krimi",
+		"documentary": "Dokumentarfilm",
+		"drama": "Drama",
+		"family": "Familie",
+		"fantasy": "Fantasie",
+		"history": "Geschichtsfilm",
+		"horror": "Horror",
+		"music": "Musik",
+		"mystery": "Mysterium",
+		"romance": "Romantik",
+		"scifi": "SciFi",
+		"thriller": "Thriller",
+		"war": "Krieg"
 	},
 	"footer": {
 		"legal": {

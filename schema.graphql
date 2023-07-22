@@ -414,12 +414,12 @@ type ComponentCommonTextBlock {
 
 type ComponentFeaturedFilm {
   id: ID!
-  video: VideoEntityResponse
+  item: VideoEntityResponse
 }
 
 type ComponentFeaturedSeries {
   id: ID!
-  serie: SerieEntityResponse
+  item: SerieEntityResponse
 }
 
 type ComponentMoviePoster {
@@ -743,7 +743,7 @@ input FloatFilterInput {
   startsWith: Float
 }
 
-union GenericMorph = ApplicationField | ApplicationQuestion | ApplicationSession | AwesomeHelpHelp | Badge | Collection | ComingSoon | ComponentApplicationCodeblock | ComponentApplicationImage | ComponentApplicationTweet | ComponentCollectionSerie | ComponentCollectionVideo | ComponentCommonButton | ComponentCommonContributor | ComponentCommonTextBlock | ComponentFeaturedFilm | ComponentFeaturedSeries | ComponentMoviePoster | ComponentMovieVideo | ComponentUserBadge | Contributor | EzformsRecipient | EzformsSubmission | Featured | GraphsBuilderGraph | I18NLocale | Imprint | Serie | Studio | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Video
+union GenericMorph = ApplicationField | ApplicationQuestion | ApplicationSession | AwesomeHelpHelp | Badge | Collection | ComingSoon | ComponentApplicationCodeblock | ComponentApplicationImage | ComponentApplicationTweet | ComponentCollectionSerie | ComponentCollectionVideo | ComponentCommonButton | ComponentCommonContributor | ComponentCommonTextBlock | ComponentFeaturedFilm | ComponentFeaturedSeries | ComponentMoviePoster | ComponentMovieVideo | ComponentUserBadge | Contributor | EzformsRecipient | EzformsSubmission | Featured | GraphsBuilderGraph | I18NLocale | Imprint | Pfp | Serie | Studio | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Video
 
 type GraphsBuilderGraph {
   collectionX: String!
@@ -940,6 +940,7 @@ type Mutation {
   createEzformsRecipient(data: EzformsRecipientInput!): EzformsRecipientEntityResponse
   createEzformsSubmission(data: EzformsSubmissionInput!): EzformsSubmissionEntityResponse
   createGraphsBuilderGraph(data: GraphsBuilderGraphInput!): GraphsBuilderGraphEntityResponse
+  createPfp(data: PfpInput!): PfpEntityResponse
   createSerie(data: SerieInput!, locale: I18NLocaleCode): SerieEntityResponse
   createSerieLocalization(data: SerieInput, id: ID, locale: I18NLocaleCode): SerieEntityResponse
   createStudio(data: StudioInput!, locale: I18NLocaleCode): StudioEntityResponse
@@ -967,6 +968,7 @@ type Mutation {
   deleteFeatured: FeaturedEntityResponse
   deleteGraphsBuilderGraph(id: ID!): GraphsBuilderGraphEntityResponse
   deleteImprint: ImprintEntityResponse
+  deletePfp(id: ID!): PfpEntityResponse
   deleteSerie(id: ID!, locale: I18NLocaleCode): SerieEntityResponse
   deleteStudio(id: ID!, locale: I18NLocaleCode): StudioEntityResponse
   deleteUploadFile(id: ID!): UploadFileEntityResponse
@@ -1009,6 +1011,7 @@ type Mutation {
   updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
   updateGraphsBuilderGraph(data: GraphsBuilderGraphInput!, id: ID!): GraphsBuilderGraphEntityResponse
   updateImprint(data: ImprintInput!): ImprintEntityResponse
+  updatePfp(data: PfpInput!, id: ID!): PfpEntityResponse
   updateSerie(data: SerieInput!, id: ID!, locale: I18NLocaleCode): SerieEntityResponse
   updateStudio(data: StudioInput!, id: ID!, locale: I18NLocaleCode): StudioEntityResponse
   updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
@@ -1036,6 +1039,53 @@ input PaginationArg {
   pageSize: Int
   start: Int
 }
+
+type Pfp {
+  createdAt: DateTime
+  name: String!
+  picture: UploadFileEntityResponse!
+  reference: [PfpReferenceDynamicZone]
+  silhouette: UploadFileEntityResponse
+  unlockable: Boolean
+  updatedAt: DateTime
+}
+
+type PfpEntity {
+  attributes: Pfp
+  id: ID
+}
+
+type PfpEntityResponse {
+  data: PfpEntity
+}
+
+type PfpEntityResponseCollection {
+  data: [PfpEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input PfpFiltersInput {
+  and: [PfpFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: PfpFiltersInput
+  or: [PfpFiltersInput]
+  unlockable: BooleanFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input PfpInput {
+  name: String
+  picture: ID
+  reference: [PfpReferenceDynamicZoneInput!]
+  silhouette: ID
+  unlockable: Boolean
+}
+
+union PfpReferenceDynamicZone = ComponentFeaturedFilm | ComponentFeaturedSeries | Error
+
+scalar PfpReferenceDynamicZoneInput
 
 enum PublicationState {
   LIVE
@@ -1069,6 +1119,8 @@ type Query {
   i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
   imprint(publicationState: PublicationState = LIVE): ImprintEntityResponse
   me: UsersPermissionsMe
+  pfp(id: ID): PfpEntityResponse
+  pfps(filters: PfpFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): PfpEntityResponseCollection
   serie(id: ID, locale: I18NLocaleCode): SerieEntityResponse
   series(filters: SerieFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): SerieEntityResponseCollection
   studio(id: ID, locale: I18NLocaleCode): StudioEntityResponse
@@ -1582,7 +1634,7 @@ type Video {
   background_image: UploadFileEntityResponse
   contributors(filters: ComponentCommonContributorFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonContributor]!
   createdAt: DateTime
-  description: String
+  description: String!
   episode: Int
   genre: ENUM_VIDEO_GENRE!
   locale: String
@@ -1592,13 +1644,14 @@ type Video {
   publishedAt: DateTime
   rating: Float
   series: SerieEntityResponse
+  slug: String!
   studios(filters: StudioFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): StudioRelationResponseCollection
   thumbnail: UploadFileEntityResponse!
   title: String!
   title_image: UploadFileEntityResponse
   transcript: String
   updatedAt: DateTime
-  year: Date
+  year: Date!
   youtube_url: String!
 }
 
@@ -1634,6 +1687,7 @@ input VideoFiltersInput {
   publishedAt: DateTimeFilterInput
   rating: FloatFilterInput
   series: SerieFiltersInput
+  slug: StringFilterInput
   studios: StudioFiltersInput
   title: StringFilterInput
   transcript: StringFilterInput
@@ -1654,6 +1708,7 @@ input VideoInput {
   publishedAt: DateTime
   rating: Float
   series: ID
+  slug: String
   studios: [ID]
   thumbnail: ID
   title: String
